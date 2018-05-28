@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        th {
+            text-align: left;
+        }
+    </style>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+
+    <div class="starter-template">
+
+<table style="width:100%">
+    <tbody>
+    <td>Id</td>
+    <td>Issue Year</td>
+    <td>Description</td>
+    <td>Owner Name</td>
+    <tr th:each="coin : ${ coinsList}">
+        <td th:text="${ coin.id }">Id</td>
+        <td th:text="${ coin.issueYear }">Issue Year</td>
+        <td th:text="${ coin.description }">Description</td>
+        <td th:text="${ coin.owner.userName }">Owner Name</td>
+    </tr>
+    </tbody>
+</table>
+    </div>
+
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>
